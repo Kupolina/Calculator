@@ -1,0 +1,161 @@
+.calc{
+    margin: 50px auto;
+    width: 300px;
+    height: 500px;
+    border-radius: 20px;
+    background: #535353;
+    color: #fff;
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 18px;
+}
+
+.calc__theme {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: #7D7D7D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme__changer{
+    user-select: none;
+}
+
+.calc__screen{
+    height: 125px;
+    padding: 10px;
+    display: grid;
+    justify-items: end;
+    align-items: end;
+}
+
+.calc__screen p{
+    text-align: right;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.calc__buttons{
+    display: grid;
+    grid-template-areas: 
+    "ac plus-minus percent division"
+    "seven eight nine multi"
+    "four five six minus"
+    "one two three plus"
+    "z z dots equal";
+    grid-gap: 7px;
+    justify-items: center;
+}
+
+.calc__button{
+    width: 60px;
+    height: 60px;
+    background: #7D7D7D;
+    border-radius: 50%;
+    text-align: center;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc__button:hover{
+    filter: brightness(120%);
+}
+
+.calc__button:active{
+    filter: brightness(90%);
+}
+
+.bg-grey{
+    background: #646464;
+}
+
+.bg-orange{
+    background: #FF9F0A;
+}
+
+.zero{
+    grid-area: z;
+    width: 100%;
+    border-radius: 34px;
+}
+
+.ac{
+    grid-area: ac;
+}
+
+.plus-minus{
+    grid-area: plus-minus;
+}
+
+.percent{
+    grid-area: percent;
+}
+
+.division{
+    grid-area: division;
+}
+
+.seven{
+    grid-area: seven;
+}
+
+.eight{
+    grid-area: eight;
+}
+
+.nine{
+    grid-area: nine;
+}
+
+.multiply{
+    grid-area: multi;
+}
+
+.four{
+    grid-area: four;
+}
+
+.five{
+    grid-area: five;
+}
+
+.six{
+    grid-area: six;
+}
+
+.minus{
+    grid-area: minus;
+}
+
+.one{
+    grid-area: one;
+}
+
+.two{
+    grid-area: two;
+}
+
+.three{
+    grid-area: three;
+}
+
+.plus{
+    grid-area: plus;
+}
+
+.dot{
+    grid-area: dots;
+}
+
+.equal{
+    grid-area: equal;
+}
+
