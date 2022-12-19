@@ -1,0 +1,41 @@
+.calc.white{
+    background: #EDEDED;
+}
+
+.calc__theme.white{
+    background: #FAFAFA;
+}
+
+.theme__changer.white{
+    color: #FF9F0A;
+}
+
+.calc__screen p.white{
+    color: #141414;
+}
+
+.calc__button.white{
+    background: #FAFAFA;
+    color: #FF9F0A;
+}
+
+.bg-grey.white{
+    background: #C8C8C8;
+}
+
+.bg-orange.white{
+    background: #DCDCDC;
+}
+
+.numbers.white{
+    color: #141414;
+}
+
+.calc__button.white:hover{
+    filter: brightness(105%);
+}
+
+.calc__button.white:active{
+    filter: brightness(95%);
+}
+
