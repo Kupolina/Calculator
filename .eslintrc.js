@@ -1,3 +1,5 @@
+const { off } = require("process");
+
 module.exports = {
   env: {
     browser: true,
@@ -7,6 +9,14 @@ module.exports = {
     'airbnb-base',
   ],
   overrides: [
+    {
+      "files": ["*.js"],
+      "rules": {
+          "no-unused-expressions": "off",
+          "no-plusplus" : "off"
+      }
+  }
+    
   ],
   plugins: [
     'prettier'
@@ -16,11 +26,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'linebreak-style': 'off',
-    'arrow-parens': 'off',
-    'object-curly-newline': 'off',
-    'no-mixed-operators': 'off',
-    'function-paren-newline': 'off',
-    'space-before-function-paren': 0
+    "no-unused-expressions": "off"
   },
 };
