@@ -1,4 +1,4 @@
-export default document.querySelector('.calc__theme').onclick = function () {
+document.querySelector('.calc__theme').onclick = function () {
   document.querySelector('.calc').classList.toggle('white');
   document.querySelector('.calc__theme').classList.toggle('white');
   document.querySelector('.calc__screen p').classList.toggle('white');
