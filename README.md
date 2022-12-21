@@ -9,9 +9,10 @@ How to run the app:
 3. Write npm install
 4. Use "npm run start" to start the webpack server or "npm build-prod" to have a production build
 
-Folder structure: --Calculator (contains .json, .js, .ignore and .md files)
-                    --.husky (doesnt't exists at first time, contains .sh and .gitignore files)
-                    --dist (doesnt't exists at first time, contains one .html one and .js files)
-                    --node_modules (doesnt't exists at first time, contains packages)
-                    --src (contains .js, .html files)
-                      --css (contains .css files)
+Folder structure: 
+1.-Calculator (contains .json, .js, .ignore and .md files)
+1.1--.husky (doesnt't exists at first time, contains .sh and .gitignore files)
+1.2--dist (doesnt't exists at first time, contains one .html one and .js files)
+1.3--node_modules (doesnt't exists at first time, contains packages)
+1.4--src (contains .js, .html files)
+1.4.1---css (contains .css files)
