@@ -6,7 +6,7 @@ import './css/white_theme.css';
 
 import './change_theme';
 
-import './scripts/clear';
+import {clearAll} from './scripts/clear';
 
 let a = ''; // first number
 let b = ''; // second number
@@ -20,14 +20,14 @@ const action = ['-', '+', 'x', '/', '%'];
 
 const out = document.querySelector('.screen__elem');
 
-function clearAll() {
+/*function clearAll() {
   a = '';
   b = '';
   sign = '';
   processfinish = false;
   out.textContent = 0;
   console.log('ClearAll');
-}
+}*/
 
 /* function fixValue(value){
   value = String(value);
@@ -101,7 +101,7 @@ document.querySelector('.calc__buttons').onclick = (event) => {
 
   if (digit.includes(key)) {
     if (operationFinish === true) {
-      clearAll();
+      clearAll(a, b, sign, out, processfinish);
       out.textContent = 0;
       operationFinish = false;
     }
