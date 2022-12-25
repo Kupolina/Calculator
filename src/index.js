@@ -6,8 +6,6 @@ import './css/white_theme.css';
 
 import './change_theme';
 
-import {clearAll} from './scripts/clear';
-
 let a = ''; // first number
 let b = ''; // second number
 let sign = ''; // sign variable
@@ -20,22 +18,16 @@ const action = ['-', '+', 'x', '/', '%'];
 
 const out = document.querySelector('.screen__elem');
 
-/*function clearAll() {
+// function that clears an output value
+function clearAll() {
   a = '';
   b = '';
   sign = '';
   processfinish = false;
   out.textContent = 0;
-  console.log('ClearAll');
-}*/
+}
 
-/* function fixValue(value){
-  value = String(value);
-  if (value.length > 6 && a.includes('.')) {
-    value = value.toFixed(3);
-  }
-} */
-
+// function that can switch between operations and do it
 function doOperations() {
   if (b === '' && sign !== '%') {
     b = a;
@@ -71,19 +63,17 @@ function doOperations() {
   }
 }
 
+// function that can change the output value sign
 function changeSign() {
   if (b === '' && a !== '') {
     a *= -1;
     out.textContent = a;
-    console.log('a : Sign have changed');
   } else if (a !== '' && b !== '' && operationFinish) {
     a *= -1;
     out.textContent = a;
-    console.log('else if : Sign have changed');
   } else {
     b *= -1;
     out.textContent = b;
-    console.log('b : Sign have changed');
   }
 }
 
@@ -101,7 +91,7 @@ document.querySelector('.calc__buttons').onclick = (event) => {
 
   if (digit.includes(key)) {
     if (operationFinish === true) {
-      clearAll(a, b, sign, out, processfinish);
+      clearAll();
       out.textContent = 0;
       operationFinish = false;
     }
@@ -116,7 +106,6 @@ document.querySelector('.calc__buttons').onclick = (event) => {
         } else {
           a += key;
           out.textContent = a;
-          console.log(a);
         }
         operationFinish = false;
       }
@@ -136,7 +125,6 @@ document.querySelector('.calc__buttons').onclick = (event) => {
         } else {
           b += key;
           out.textContent = b;
-          console.log(b);
         }
       }
       out.textContent = b;
