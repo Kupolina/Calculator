@@ -1,11 +1,9 @@
-export function clearAll(a, b, sign, out, processfinish) {
-  a = '';
-  b = '';
-  sign = '';
-  out.textContent = 0;
-  processfinish = false;
-  console.log('ClearAll');
-  }
+import { setNewVariables } from '../main';
+import { out } from '../index';
 
-  document.querySelector('.ac').onclick = clearAll;
-// eslint-disable-next-line no-restricted-exports
+export function clearAll() {
+  setNewVariables('', '', '', false);
+  out.textContent = 0;
+}
+
+document.querySelector('.ac').onclick = clearAll;
