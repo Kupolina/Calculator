@@ -45,3 +45,8 @@ export const setIsProcessFinished = (isProcessFinished) => {
 export const setNewArithmeticSign = (newArithmeticSign) => {
   sign = newArithmeticSign;
 };
+
+export const setIsWaitNumFlag = (isWaitNumFlag) => {
+  waitNumFlag = isWaitNumFlag;
+};
+

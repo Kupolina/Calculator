@@ -1,35 +1,44 @@
+import {
+  a,
+  b,
+  sign,
+  setNewVariables,
+  setNewSecondNumber,
+  setNewFirstNumber,
+} from '../main';
+
+import { out } from '../index';
 // eslint-disable-next-line import/prefer-default-export
 export function doOperations() {
   if (b === '' && sign !== '%') {
-    b = a;
+    setNewSecondNumber(a);
   }
   switch (sign) {
     case '+':
-      a = (+a) + (+b);
+      setNewFirstNumber((+a) + (+b));
       break;
     case '-':
-      a -= b;
+      setNewFirstNumber(a - b);
       break;
     case 'x':
-      a *= b;
+      setNewFirstNumber(a * b);
       break;
     case '/':
       if (b === '0') {
         out.textContent = 'Error';
-        a = '';
-        b = '';
-        sign = '';
+        setNewVariables('', '', '');
         return;
       }
-      a /= b;
+      setNewFirstNumber(a / b);
       break;
     case '%':
       if (b === '') {
-        b = 0;
+        setNewSecondNumber(0);
       }
-      a /= 100;
+      setNewFirstNumber(a / 100);
       out.textContent = a;
       break;
-    default:// do nothing
+    default:
+      break; // do nothing
   }
 }

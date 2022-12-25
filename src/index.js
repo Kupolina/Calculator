@@ -6,84 +6,43 @@ import './css/white_theme.css';
 
 import './change_theme';
 
-let a = ''; // first number
-let b = ''; // second number
-let sign = ''; // sign variable
-let processfinish = false; // process flag
-let waitNumFlag = false; // number input completed flag
-let operationFinish = false; // operation flag
+import { clearAll } from './scripts/clear';
+
+import { doOperations } from './scripts/operations';
+
+import { changeSign } from './scripts/changeSign';
+
+import { getResult } from './scripts/result';
+
+import {
+  a,
+  b,
+  sign,
+  processfinish,
+  waitNumFlag,
+  operationFinish,
+  setNewSecondNumber,
+  setNewFirstNumber,
+  setIsOperationFinished,
+  setIsProcessFinished,
+  setNewArithmeticSign,
+  setIsWaitNumFlag,
+} from './main';
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['-', '+', 'x', '/', '%'];
 
-const out = document.querySelector('.screen__elem');
-
-// function that clears an output value
-function clearAll() {
-  a = '';
-  b = '';
-  sign = '';
-  processfinish = false;
-  out.textContent = 0;
-}
-
-// function that can switch between operations and do it
-function doOperations() {
-  if (b === '' && sign !== '%') {
-    b = a;
-  }
-  switch (sign) {
-    case '+':
-      a = (+a) + (+b);
-      break;
-    case '-':
-      a -= b;
-      break;
-    case 'x':
-      a *= b;
-      break;
-    case '/':
-      if (b === '0') {
-        out.textContent = 'Error';
-        a = '';
-        b = '';
-        sign = '';
-        return;
-      }
-      a /= b;
-      break;
-    case '%':
-      if (b === '') {
-        b = 0;
-      }
-      a /= 100;
-      out.textContent = a;
-      break;
-    default:// do nothing
-  }
-}
-
-// function that can change the output value sign
-function changeSign() {
-  if (b === '' && a !== '') {
-    a *= -1;
-    out.textContent = a;
-  } else if (a !== '' && b !== '' && operationFinish) {
-    a *= -1;
-    out.textContent = a;
-  } else {
-    b *= -1;
-    out.textContent = b;
-  }
-}
+export const out = document.querySelector('.screen__elem');
 
 document.querySelector('.ac').onclick = clearAll;
 document.querySelector('.plus-minus').onclick = changeSign;
+document.querySelector('.equal').onclick = getResult;
 
 document.querySelector('.calc__buttons').onclick = (event) => {
   if (!event.target.classList.contains('calc__button')) return;
   if (event.target.classList.contains('ac')) return;
   if (event.target.classList.contains('plus-minus')) return;
+  if (event.target.classList.contains('equal')) return;
 
   out.textContent = '';
 
@@ -93,37 +52,33 @@ document.querySelector('.calc__buttons').onclick = (event) => {
     if (operationFinish === true) {
       clearAll();
       out.textContent = 0;
-      operationFinish = false;
+      setIsOperationFinished(false);
     }
     if (b === '' && sign === '') {
       if (a.length <= 6) {
         if (key === '.' && a.includes('.')) {
-          a += '';
           out.textContent = a;
         } else if (key === '0' && a.includes('0') && !a.includes('.') && a[0] === '0') {
-          a += '';
           out.textContent = a;
         } else {
-          a += key;
+          setNewFirstNumber(a + key);
           out.textContent = a;
         }
-        operationFinish = false;
+        setIsOperationFinished(false);
       }
       out.textContent = a;
     } else if (a !== '' && b !== '' && processfinish) {
-      b = key;
-      processfinish = false;
+      setNewSecondNumber(key);
+      setIsProcessFinished(false);
       out.textContent = b;
     } else {
       if (b.length <= 6) {
         if (key === '.' && b.includes('.')) {
-          b += '';
           out.textContent = b;
         } else if (key === '0' && b.includes('0') && !b.includes('.') && b[0] === '0') {
-          b += '';
           out.textContent = b;
         } else {
-          b += key;
+          setNewSecondNumber(b + key);
           out.textContent = b;
         }
       }
@@ -134,23 +89,14 @@ document.querySelector('.calc__buttons').onclick = (event) => {
 
   if (action.includes(key) && a !== '' && b !== '' && waitNumFlag) {
     doOperations();
-    processfinish = true;
+    setIsProcessFinished(true);
     out.textContent = a;
   }
 
   if (action.includes(key)) {
-    waitNumFlag = true;
-    sign = key;
-    out.textContent = a;
-    operationFinish = false;
-    return;
-  }
-
-  if (key === '=') {
-    doOperations();
-    waitNumFlag = false;
-    processfinish = true;
-    operationFinish = true;
+    setIsWaitNumFlag(true);
+    setNewArithmeticSign(key);
+    setIsOperationFinished(false);
     out.textContent = a;
   }
 };
