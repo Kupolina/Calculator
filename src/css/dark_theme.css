@@ -33,9 +33,13 @@
 }
 
 .calc__screen p{
+    display: block;
+    width: 280px;
     text-align: right;
     font-size: 4rem;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .calc__buttons{
