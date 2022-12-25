@@ -7,7 +7,7 @@ How to run the app:
     1) Download LTS version of node.js from https://nodejs.org/en/
     2) Check "node -v" and "npm -v" one more time
 3. Write npm install
-4. Use "npm run start" to start the webpack server or "npm build-prod" to have a production build
+4. Use "npm run start" to start the webpack server or "npm run build-prod" to have a production build
 
 Folder structure: 
 1.-Calculator (contains .json, .js, .ignore and .md files)
@@ -16,3 +16,4 @@ Folder structure:
 1.3--node_modules (doesnt't exists at first time, contains packages)
 1.4--src (contains .js, .html files)
 1.4.1---css (contains .css files)
+1.4.2---scripts (contains .js files)
